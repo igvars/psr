@@ -1,0 +1,10 @@
+C:\Users\dawid\Documents\graph (3)\Graph\ClientTEst3\bin\Debug\ClientTEst2.exe.config
+C:\Users\dawid\Documents\graph (3)\Graph\ClientTEst3\bin\Debug\ClientTEst2.exe
+C:\Users\dawid\Documents\graph (3)\Graph\ClientTEst3\bin\Debug\ClientTEst2.pdb
+C:\Users\dawid\Documents\graph (3)\Graph\ClientTEst3\bin\Debug\Graph.exe
+C:\Users\dawid\Documents\graph (3)\Graph\ClientTEst3\bin\Debug\Graph.pdb
+C:\Users\dawid\Documents\graph (3)\Graph\ClientTEst3\obj\Debug\ClientTEst3.csprojResolveAssemblyReference.cache
+C:\Users\dawid\Documents\graph (3)\Graph\ClientTEst3\obj\Debug\ClientTEst3.csproj.CoreCompileInputs.cache
+C:\Users\dawid\Documents\graph (3)\Graph\ClientTEst3\obj\Debug\ClientTEst3.csproj.CopyComplete
+C:\Users\dawid\Documents\graph (3)\Graph\ClientTEst3\obj\Debug\ClientTEst2.exe
+C:\Users\dawid\Documents\graph (3)\Graph\ClientTEst3\obj\Debug\ClientTEst2.pdb
