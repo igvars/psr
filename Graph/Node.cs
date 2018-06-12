@@ -9,10 +9,6 @@ namespace Graph {
     {
         public Point Point { get; set; }
 
-        public Node()
-        {
-
-        }
 
         public double? MinCostToStart { get; set; }
         public Node NearestToStart { get; set; }

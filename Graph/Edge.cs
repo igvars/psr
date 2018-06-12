@@ -11,10 +11,6 @@ namespace Graph {
         public Node EndNode { get; set; }
         public double Length { get; set; }
       
-        public Edge()
-        {
-
-        }
 
         public Edge(Node start, Node end)
         {

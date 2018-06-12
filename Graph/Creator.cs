@@ -9,26 +9,14 @@ namespace Graph
     
    class Creator 
     {
-        //edge
-        Node[] nodes;
-        List<Node> Nodelist = new List<Node>();
-        //Node[] nodes; // tablica na wierzcholki
-        Random rand = new Random();
-        int nodesCount = 50; // liczba wierzcholkow
-        List<int> connectedNodesID = new List<int>(); // lista na wierzcholki, ktore dostaly juz krawedz
-        List<Edge> edges = new List<Edge>(); // lista krawedzi
-        private object data;
-        private byte[] bytes;
-       
         
-        public Node[] Nodes { get => nodes; set => nodes = value; }
-        public List<Node> Nodelist1 { get => Nodelist; set => Nodelist = value; }
-        public Random Rand { get => rand; set => rand = value; }
-        public int NodesCount { get => nodesCount; set => nodesCount = value; }
-        public List<int> ConnectedNodesID { get => connectedNodesID; set => connectedNodesID = value; }
-        public List<Edge> Edges { get => edges; set => edges = value; }
-        public object Data { get => data; set => data = value; }
-        public byte[] Bytes { get => bytes; set => bytes = value; }
+        Node[] nodes;
+        List<Node> Nodelist1 = new List<Node>();
+        Node[] Nodes; // tablica na wierzcholki
+        Random Rand = new Random();
+        int NodesCount = 50; // liczba wierzcholkow
+        List<int> ConnectedNodesID = new List<int>(); // lista na wierzcholki, ktore dostaly juz krawedz
+        List<Edge> Edges = new List<Edge>(); // lista krawedzi
 
         public void Load()
         {
@@ -96,10 +84,10 @@ namespace Graph
         {
             TextWriter textWriter = new StreamWriter("C:\\Users\\dawid\\Documents\\graph (3)\\Graph\\EdgeList.txt");
             foreach (Edge s in Edges)
-                textWriter.WriteLine(s.ToString());
+            textWriter.WriteLine(s.ToString());
             textWriter.WriteLine("\n");
             foreach (Node n in Nodelist1)
-                textWriter.WriteLine(n.ToString());
+            textWriter.WriteLine(n.ToString());
             textWriter.WriteLine("\n");
             textWriter.Close();
         }
