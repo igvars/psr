@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,12 +47,8 @@ namespace Graph
 
         private void button3_Click(object sender, EventArgs e)
         {
-            List<double> result = creator.findShortestPath();
-            double[] resultArray = result.ToArray<Double>();
-            for (int i = 0; i < resultArray.Count(); i++)
-            {
-                MessageBox.Show("Length from start to " + i + ": " + resultArray[i].ToString());
-            }
+            string result = creator.findShortestPath();
+            MessageBox.Show("Time: " + result);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +10,35 @@ namespace Graph
 {
     public class Dijkstra
     {
-        public List<double> shortestPath(List<Node> originalNodes, double[,] matrix)
+        public string shortestPath(List<Node> Nodes, List<Edge> Edges)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            double[,] matrix = new double[Nodes.Count, Nodes.Count];
+
+            for (int i = 0; i < Nodes.Count; i++)
+            {
+                for (int j = 0; j < Nodes.Count; j++)
+                {
+                    if (i == j)
+                    {
+                        matrix[i, j] = 0;
+                    }
+                    else
+                    {
+                        for (int k = 0; k < Edges.Count; k++)
+                        {
+                            if ((Edges[k].StartNode.ID == i && Edges[k].EndNode.ID == j)
+                                || (Edges[k].StartNode.ID == j && Edges[k].EndNode.ID == i))
+                            {
+                                matrix[i, j] = Edges[k].computeLength();
+                            }
+                        }
+                    }
+                }
+            }
+
             List<double> d = new List<double>(); // min length
             List<double> v = new List<double>(); // visited verteces
             double temp;
@@ -19,7 +46,7 @@ namespace Graph
             int minindex;
 
             //Initialization verteces and length
-            for (int i = 0; i < originalNodes.Count; i++)
+            for (int i = 0; i < Nodes.Count; i++)
             {
                 d.Add(10000);
                 v.Add(1);
@@ -31,7 +58,7 @@ namespace Graph
             {
                 minindex = 10000;
                 min = 10000;
-                for (int i = 0; i < originalNodes.Count; i++)
+                for (int i = 0; i < Nodes.Count; i++)
                 { // If vertex isn't visited and weght less than min
                     if ((v[i] == 1) && (d[i] < min))
                     { // Reassign values
@@ -43,7 +70,7 @@ namespace Graph
                 // and compare with current min weight of vertex
                 if (minindex != 10000)
                 {
-                    for (int i = 0; i < originalNodes.Count; i++)
+                    for (int i = 0; i < Nodes.Count; i++)
                     {
                         if (matrix[minindex, i] > 0)
                         {
@@ -58,7 +85,15 @@ namespace Graph
                 }
             } while (minindex < 10000);
 
-            return d;
+            stopWatch.Stop();
+
+            // Get the elapsed time as a TimeSpan value.
+            TimeSpan ts = stopWatch.Elapsed;
+            // Format and display the TimeSpan value.
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:0000}",
+                ts.Hours, ts.Minutes, ts.Seconds,
+                ts.Milliseconds);
+            return elapsedTime;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -12,10 +12,9 @@ namespace Graph
         List<Node> Nodelist1 = new List<Node>();
         Node[] Nodes; // tablica na wierzcholki
         Random Rand = new Random();
-        int NodesCount = 5; // liczba wierzcholkow
+        int NodesCount = 100; // liczba wierzcholkow
         List<int> ConnectedNodesID = new List<int>(); // lista na wierzcholki, ktore dostaly juz krawedz
         public List<Edge> Edges = new List<Edge>(); // lista krawedzi
-        double[,] matrix;
 
         public void Load()
         {
@@ -67,32 +66,6 @@ namespace Graph
                 if (foundIt == 0) ConnectedNodesID.Add(randID);
             } while (ConnectedNodesID.Count < Nodes.Length); // dopoki chociaz 1 wygenerowany wezel nie nalezy do grafu
                                                              // (nie ma przyporzadkowanej krawedzi), losujemy kolejne
-
-            //adjacency matrix
-            matrix = new double[NodesCount, NodesCount];
-
-            for (int i=0; i < Nodes.Length; i++)
-            {
-                for (int j = 0; j < Nodes.Length; j++)
-                {
-                    if (i == j)
-                    {
-                        matrix[i, j] = 0;
-                    }
-                    else
-                    {
-                        for (int k = 0; k < Edges.Count; k++)
-                        {
-                            if((Edges[k].StartNode.ID == i && Edges[k].EndNode.ID == j)
-                                || (Edges[k].StartNode.ID == j && Edges[k].EndNode.ID == i))
-                            {
-                                matrix[i, j] = Edges[k].computeLength();
-                            }
-                        }
-                    }
-                }
-            }
-            //end adjacency matrix
         }
 
         public void Paint(PaintEventArgs e)
@@ -133,10 +106,10 @@ namespace Graph
         }
 
 
-        public List<double> findShortestPath()
+        public string findShortestPath()
         {
             Dijkstra dijkstra = new Dijkstra();
-            List<double> result = dijkstra.shortestPath(Nodelist1, matrix);
+            string result = dijkstra.shortestPath(Nodelist1, Edges);
             return result;
         }
     }
