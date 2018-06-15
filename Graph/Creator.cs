@@ -15,6 +15,7 @@ namespace Graph
         int NodesCount = 5; // liczba wierzcholkow
         List<int> ConnectedNodesID = new List<int>(); // lista na wierzcholki, ktore dostaly juz krawedz
         public List<Edge> Edges = new List<Edge>(); // lista krawedzi
+        double[,] matrix;
 
         public void Load()
         {
@@ -68,7 +69,7 @@ namespace Graph
                                                              // (nie ma przyporzadkowanej krawedzi), losujemy kolejne
 
             //adjacency matrix
-            double[,] matrix = new double[NodesCount, NodesCount];
+            matrix = new double[NodesCount, NodesCount];
 
             for (int i=0; i < Nodes.Length; i++)
             {
@@ -132,10 +133,11 @@ namespace Graph
         }
 
 
-        public void findShortestPath()
+        public List<double> findShortestPath()
         {
             Dijkstra dijkstra = new Dijkstra();
-            String result = dijkstra.shortestPath(Nodelist1, Edges);
+            List<double> result = dijkstra.shortestPath(Nodelist1, matrix);
+            return result;
         }
     }
 

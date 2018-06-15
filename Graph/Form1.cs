@@ -47,12 +47,12 @@ namespace Graph
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("edgesCount = " + creator.Edges.Count);
-            for (int i = 0; i < creator.Edges.Count; i++)
+            List<double> result = creator.findShortestPath();
+            double[] resultArray = result.ToArray<Double>();
+            for (int i = 0; i < resultArray.Count(); i++)
             {
-                MessageBox.Show(creator.Edges[i].ToString());
+                MessageBox.Show("Length from start to " + i + ": " + resultArray[i].ToString());
             }
-            //creator.findShortestPath();
         }
     }
 }

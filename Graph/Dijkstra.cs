@@ -10,31 +10,8 @@ namespace Graph
 {
     public class Dijkstra
     {
-        public String shortestPath(List<Node> originalNodes, List<Edge> originalEdges)
+        public List<double> shortestPath(List<Node> originalNodes, double[,] matrix)
         {
-            List<List<double>> matrix = new List<List<double>>();
-            List<double> row = new List<double>();
-        
-            for (int i = 0; i < originalNodes.Count; i++)
-            {
-                row = new List<double>();
-                for (int j = 0; j < originalNodes.Count; j++)
-                {
-                    row.Add(0);
-                }
-                matrix.Add(row);
-            }
-            //convert edges to matrix
-            foreach (var edge in originalEdges)
-            {
-                int resultStartIndex = originalNodes.FindIndex(node => node.ToString().Equals(edge.StartNode.ToString()));
-                int resultEndIndex = originalNodes.FindIndex(node => node.ToString().Equals(edge.EndNode.ToString()));
-                matrix[resultStartIndex][resultEndIndex] = edge.Length;
-            }
-            
-            string start = originalNodes[0].ToString();
-            string finish = originalNodes[originalNodes.Count - 1].ToString();
-
             List<double> d = new List<double>(); // min length
             List<double> v = new List<double>(); // visited verteces
             double temp;
@@ -68,9 +45,9 @@ namespace Graph
                 {
                     for (int i = 0; i < originalNodes.Count; i++)
                     {
-                        if (matrix[minindex][i] > 0)
+                        if (matrix[minindex, i] > 0)
                         {
-                            temp = min + matrix[minindex][i];
+                            temp = min + matrix[minindex, i];
                             if (temp < d[i])
                             {
                                 d[i] = temp;
@@ -81,7 +58,7 @@ namespace Graph
                 }
             } while (minindex < 10000);
 
-            return d.ToString();
+            return d;
         }
     }
 }
