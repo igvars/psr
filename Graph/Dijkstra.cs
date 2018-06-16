@@ -39,52 +39,75 @@ namespace Graph
                 }
             }
 
-            List<double> d = new List<double>(); // min length
-            List<double> v = new List<double>(); // visited verteces
+            double[,] d = new double[Nodes.Count, Nodes.Count]; // min length
+            double[] v = new double[Nodes.Count]; // visited verteces
             double temp;
             double min;
             int minindex;
+            for (int k = 0; k < Nodes.Count; k++)
+            {
 
-            //Initialization verteces and length
-            for (int i = 0; i < Nodes.Count; i++)
-            {
-                d.Add(10000);
-                v.Add(1);
-            }
-            //TODO: startFrom
-            d[0] = 0;
-            // Algorithm step
-            do
-            {
-                minindex = 10000;
-                min = 10000;
+                //Initialization verteces and length
                 for (int i = 0; i < Nodes.Count; i++)
-                { // If vertex isn't visited and weght less than min
-                    if ((v[i] == 1) && (d[i] < min))
-                    { // Reassign values
-                        min = d[i];
-                        minindex = i;
-                    }
-                }
-                // Add found min weigth to current vertex's weight
-                // and compare with current min weight of vertex
-                if (minindex != 10000)
                 {
+                    d[k, i] = 10000;
+                    v[i] = 1;
+                }
+                //TODO: startFrom
+                d[k,k] = 0;
+                // Algorithm step
+                do
+                {
+                    minindex = 10000;
+                    min = 10000;
                     for (int i = 0; i < Nodes.Count; i++)
-                    {
-                        if (matrix[minindex, i] > 0)
-                        {
-                            temp = min + matrix[minindex, i];
-                            if (temp < d[i])
-                            {
-                                d[i] = temp;
-                            }
+                    { // If vertex isn't visited and weght less than min
+                        if ((v[i] == 1) && (d[k, i] < min))
+                        { // Reassign values
+                            min = d[k, i];
+                            minindex = i;
                         }
                     }
-                    v[minindex] = 0;
-                }
-            } while (minindex < 10000);
+                    // Add found min weigth to current vertex's weight
+                    // and compare with current min weight of vertex
+                    if (minindex != 10000)
+                    {
+                        for (int i = 0; i < Nodes.Count; i++)
+                        {
+                            if (matrix[minindex, i] > 0)
+                            {
+                                temp = min + matrix[minindex, i];
+                                if (temp < d[k, i])
+                                {
+                                    d[k, i] = temp;
+                                }
+                            }
+                        }
+                        v[minindex] = 0;
+                    }
+                } while (minindex < 10000);
+            }
 
+            double[] sum = new double[Nodes.Count];
+
+            for (int i = 0; i < Nodes.Count; i++)
+            {
+                sum[i] = 0;
+                for (int j = 0; j < Nodes.Count; j++)
+                {
+                    sum[i] = sum[i] + d[i, j];
+                }
+            }
+            double result = sum[0];
+            double resultNodeIndex = 0;
+            for (int i = 1; i < Nodes.Count; i++)
+            {
+                if (sum[i] < result)
+                {
+                    result = sum[i];
+                    resultNodeIndex = i;
+                }
+            }
             stopWatch.Stop();
 
             // Get the elapsed time as a TimeSpan value.
