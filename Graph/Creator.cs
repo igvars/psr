@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Graph
@@ -9,10 +11,10 @@ namespace Graph
     
    public class Creator 
     {
-        List<Node> Nodelist1 = new List<Node>();
+       public  List<Node> Nodelist1 = new List<Node>();
         Node[] Nodes; // tablica na wierzcholki
         Random Rand = new Random();
-        int NodesCount = 100; // liczba wierzcholkow
+        int NodesCount = 200; // liczba wierzcholkow
         List<int> ConnectedNodesID = new List<int>(); // lista na wierzcholki, ktore dostaly juz krawedz
         public List<Edge> Edges = new List<Edge>(); // lista krawedzi
 
@@ -86,7 +88,7 @@ namespace Graph
             {
                 g.DrawLine(pen, Edges[i].StartNode.Point.X, Edges[i].StartNode.Point.Y, Edges[i].EndNode.Point.X, Edges[i].EndNode.Point.Y);
             }
-            
+
         }
 
         public void Save()
@@ -102,15 +104,29 @@ namespace Graph
         }
             public void Ser()
         {
-            SerializeClass.Serialize2Bytes(Nodelist1,Edges);
+            TcpServer tcpServer = new TcpServer();
+            tcpServer.StartServer(5000);
+
+            tcpServer.Ser(Nodelist1, Edges);
+            tcpServer.LoopClients();
         }
 
 
         public string findShortestPath()
         {
+
             Dijkstra dijkstra = new Dijkstra();
             string result = dijkstra.shortestPath(Nodelist1, Edges);
             return result;
+        }
+
+        public List<Node> getNodeList()
+        {
+            return Nodelist1;
+        }
+        public List<Edge> getEdges()
+        {
+            return Edges;
         }
     }
 
