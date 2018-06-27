@@ -104,7 +104,7 @@ namespace Graph
         }
             public void Ser()
         {
-            TcpServer tcpServer = new TcpServer();
+            TcpClient tcpServer = new TcpClient();
             tcpServer.StartServer(5000);
 
             tcpServer.Ser(Nodelist1, Edges);

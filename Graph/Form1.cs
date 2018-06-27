@@ -15,12 +15,13 @@ namespace Graph
 {
     public partial class Form1 : Form
     {
-       
         Creator creator = new Creator();
+        
+
         public Form1()
         {
             InitializeComponent();
-            
+    
 
         }
         public void Form1_Load(object sender, EventArgs e)

@@ -6,7 +6,7 @@ namespace  clientNetF4
     {
         static void Main(string[] args)
         {
-            ClientDemo clientDemo = new ClientDemo("127.0.0.1",5000);
+            ClientDemo clientDemo = new ClientDemo();
         }
     }
 }
