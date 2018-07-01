@@ -68,3 +68,12 @@ C:\Users\dawid\Documents\Projekty GIT\psr2\Graph\obj\Debug\Graph.pdb
 C:\Users\dawid\Documents\Projekty GIT\psr2\Graph\obj\Debug\Graph.csprojAssemblyReference.cache
 C:\Users\dawid\Documents\Projekty GIT\psr2\Graph\bin\Debug\Newtonsoft.Json.dll
 C:\Users\dawid\Documents\Projekty GIT\psr2\Graph\obj\Debug\Graph.csproj.CopyComplete
+C:\Users\dawid\Downloads\psr-master\psr-master\Graph\obj\Debug\Graph.exe
+C:\Users\dawid\Downloads\psr-master\psr-master\Graph\obj\Debug\Graph.pdb
+C:\Users\dawid\Downloads\psr-master\psr-master\Graph\bin\Debug\Graph.exe
+C:\Users\dawid\Downloads\psr-master\psr-master\Graph\bin\Debug\Graph.pdb
+C:\Users\dawid\Downloads\psr-master\psr-master\Graph\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dawid\Downloads\psr-master\psr-master\Graph\obj\Debug\Graph.Form1.resources
+C:\Users\dawid\Downloads\psr-master\psr-master\Graph\obj\Debug\Graph.Properties.Resources.resources
+C:\Users\dawid\Downloads\psr-master\psr-master\Graph\obj\Debug\Graph.csproj.GenerateResource.Cache
+C:\Users\dawid\Downloads\psr-master\psr-master\Graph\obj\Debug\Graph.csprojResolveAssemblyReference.cache

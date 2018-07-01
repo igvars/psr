@@ -1,13 +1,11 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization.Json;
 using System.Text;
 
-namespace clientNetF4
+namespace Client2
 {
     class ClientDemo
     {
@@ -18,7 +16,7 @@ namespace clientNetF4
         private Boolean _isConnected;
         String ipAddress;
         int port;
-        int odp =0;
+        int odp = 0;
         int bWartosc;
         public ClientDemo()
         {
@@ -28,7 +26,7 @@ namespace clientNetF4
             //Console.WriteLine("Podaj port:  ");
             //port = int.Parse(Console.ReadLine());
             //Console.WriteLine("Podaj przedział list:");
-            
+
 
             _client = new TcpClient();
             _client.Connect("127.0.0.1", 5000);
@@ -76,7 +74,7 @@ namespace clientNetF4
                     Console.WriteLine(result);
                     formatter.Serialize(stream, result);
                     //Console.ReadLine();
-                   
+
                     //odp = 1;
                     //Console.WriteLine(odp);
                     //formatter.Serialize(stream, odp);
@@ -91,15 +89,15 @@ namespace clientNetF4
                 Console.WriteLine(e);
             }
 
-            
-            
+
+
             //foreach (Graph.Edge e in edgeList)
             //{
             //    Console.WriteLine(e);
             //}
 
 
-            
+
         }
 
     }

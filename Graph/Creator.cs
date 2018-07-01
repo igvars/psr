@@ -14,7 +14,7 @@ namespace Graph
        public  List<Node> Nodelist1 = new List<Node>();
         Node[] Nodes; // tablica na wierzcholki
         Random Rand = new Random();
-        int NodesCount = 200; // liczba wierzcholkow
+        int NodesCount = 3000; // liczba wierzcholkow
         List<int> ConnectedNodesID = new List<int>(); // lista na wierzcholki, ktore dostaly juz krawedz
         public List<Edge> Edges = new List<Edge>(); // lista krawedzi
 

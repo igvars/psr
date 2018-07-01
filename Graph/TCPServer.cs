@@ -24,9 +24,11 @@ namespace Graph
         List<Edge> newEdges;
         private TcpListener _server;
         private Boolean _isRunning;
-        //double[,] matrix = new double[Node,Edge];
-        // List<System.Net.Sockets.TcpClient> clients = new List<System.Net.Sockets.TcpClient>();
-        int clients = 0;    
+        int pck_number = 0;
+        int clients = 0;
+        List<Node> divided_list = new List<Node>();
+        int x = 0;
+        int y = 300;
         public void StartServer(int port )
         {
 
@@ -58,24 +60,37 @@ namespace Graph
 
         public void HandleClient(object obj)
         {
+            try
+            {
+                
+                    System.Net.Sockets.TcpClient client = (System.Net.Sockets.TcpClient)obj;
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    NetworkStream stream = newClient.GetStream();
+                    formatter.Serialize(stream, clients);
+                    formatter.Serialize(stream, newEdges);
+                    var bin = new BinaryFormatter();
+                    int ile  = newNodes.Count();
+                    formatter.Serialize(stream, ile);
 
-            System.Net.Sockets.TcpClient client = (System.Net.Sockets.TcpClient)obj;
-            StreamWriter sWriter = new StreamWriter(client.GetStream(), Encoding.ASCII);
-            StreamReader sReader = new StreamReader(client.GetStream(), Encoding.ASCII);
-            BinaryFormatter formatter = new BinaryFormatter();
-            NetworkStream stream = newClient.GetStream();
-            formatter.Serialize(stream, clients);
-            formatter.Serialize(stream, newNodes);
-            formatter.Serialize(stream, newEdges);
+                    do
+                    {
+                        pck_number++;
+                        Console.WriteLine("Wysyłam paczkę nr: "+pck_number);
+                        divided_list = newNodes.GetRange(x, y);
+                        formatter.Serialize(stream, divided_list);
+                        x += y;
+                        var zmienna = bin.Deserialize(stream);
 
-            sWriter.Flush();
-            var bin = new BinaryFormatter();
+                    }
+                    while (x+y <= newNodes.Count());
+                    stream.Close();
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine(e);
+            }
 
-            var result = bin.Deserialize(stream);
-            TextWriter textWriter = new StreamWriter("C:\\Users\\dawid\\Documents\\graph (3)\\Graph\\result.txt");
-            textWriter.WriteLine(result);
-            textWriter.Close();
-            stream.Close();
+            
         }
     }
 }
