@@ -100,9 +100,9 @@ namespace Graph
                 NodesCount = Convert.ToInt32(textBox1.Text);
             }
 
-            if (textBox2.Text == "" || Convert.ToInt32(textBox2.Text) <= 2)
+            if (textBox2.Text == "" || Convert.ToInt32(textBox2.Text) <= 3)
             {
-                branching = 2;
+                branching = 3;
             }
             else
             {
@@ -130,21 +130,25 @@ namespace Graph
             ConnectedNodesID.Add(Rand.Next(0, Nodelist1.Count));
             do
             {
-                
+                do
+                {
+                    randID = Rand.Next(0, Nodelist1.Count); // random node having 0 branches
+                } while (Nodelist1[randID].Branches != 0);
+
+                Nodelist1[randID].Branches++;
+
+                do
+                {
                     randConnectedIndex = Rand.Next(0, ConnectedNodesID.Count); // losowy indeks z wierzcholkow, ktore maja przyporzadkowana krawedz
                     randConnectedID = ConnectedNodesID[randConnectedIndex]; // numer konkretnego wierzcholka spod wylosowanego wyzej indeksu
                                                                             // (bedzie to poczatek krawedzi)
-                
+                } while (Nodelist1[randConnectedID].Branches >= branching);
 
-               
 
-                
-                    randID = Rand.Next(0, Nodelist1.Count); // losowy numer wierzcholka ze wszystkich wierzcholkow (bedzie to koniec krawedzi)
-                
+                Nodelist1[randConnectedID].Branches++;
 
-                
 
-                Edge newEdge = new Edge(Nodelist1[randConnectedID], Nodelist1[randID]); // krawedz utworzona z dwoch wylosowanych wierzcholkow
+                Edge newEdge = new Edge(Nodelist1[randID], Nodelist1[randConnectedID]); // krawedz utworzona z dwoch wylosowanych wierzcholkow
 
                 // sprawdzenie, czy czasem nie mamy juz takiej krawedzi. Jesli nie, to ja dodajemy do listy i rysujemy
                 int foundIt = 0;
