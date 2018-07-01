@@ -19,7 +19,6 @@ namespace Graph
    public  class TcpClient
 {
         System.Net.Sockets.TcpClient newClient;
-        Creator creator = new Creator();
         List<Node> newNodes;
         List<Edge> newEdges;
         private TcpListener _server;

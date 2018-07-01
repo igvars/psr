@@ -77,3 +77,14 @@ C:\Users\dawid\Downloads\psr-master\psr-master\Graph\obj\Debug\Graph.Form1.resou
 C:\Users\dawid\Downloads\psr-master\psr-master\Graph\obj\Debug\Graph.Properties.Resources.resources
 C:\Users\dawid\Downloads\psr-master\psr-master\Graph\obj\Debug\Graph.csproj.GenerateResource.Cache
 C:\Users\dawid\Downloads\psr-master\psr-master\Graph\obj\Debug\Graph.csprojResolveAssemblyReference.cache
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\bin\Debug\Graph.exe
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\bin\Debug\Graph.pdb
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\bin\Debug\Newtonsoft.Json.dll
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\obj\Debug\Graph.csprojAssemblyReference.cache
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\obj\Debug\Graph.Form1.resources
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\obj\Debug\Graph.Properties.Resources.resources
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\obj\Debug\Graph.csproj.GenerateResource.cache
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\obj\Debug\Graph.csproj.CoreCompileInputs.cache
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\obj\Debug\Graph.csproj.CopyComplete
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\obj\Debug\Graph.exe
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\obj\Debug\Graph.pdb

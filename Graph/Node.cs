@@ -9,6 +9,12 @@ namespace Graph {
     {
         public Point Point { get; set; }
         public int ID { get; set; }
+        public int Branches { get; set; }
+
+        public Node()
+        {
+            Branches = 0;
+        }
 
 
         public double? MinCostToStart { get; set; }

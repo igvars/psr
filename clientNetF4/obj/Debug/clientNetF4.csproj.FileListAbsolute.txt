@@ -20,3 +20,16 @@ C:\Users\dawid\Downloads\psr-master\psr-master\clientNetF4\bin\Debug\System.Net.
 C:\Users\dawid\Downloads\psr-master\psr-master\clientNetF4\bin\Debug\Graph.pdb
 C:\Users\dawid\Downloads\psr-master\psr-master\clientNetF4\bin\Debug\System.Net.Http.xml
 C:\Users\dawid\Downloads\psr-master\psr-master\clientNetF4\obj\Debug\clientNetF4.csprojResolveAssemblyReference.cache
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\bin\Debug\clientNetF4.exe.config
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\bin\Debug\clientNetF4.exe
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\bin\Debug\clientNetF4.pdb
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\bin\Debug\Graph.exe
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\bin\Debug\Newtonsoft.Json.dll
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\bin\Debug\System.Net.Http.dll
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\bin\Debug\Graph.pdb
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\bin\Debug\System.Net.Http.xml
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\obj\Debug\clientNetF4.csprojAssemblyReference.cache
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\obj\Debug\clientNetF4.csproj.CoreCompileInputs.cache
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\obj\Debug\clientNetF4.csproj.CopyComplete
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\obj\Debug\clientNetF4.exe
+C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\clientNetF4\obj\Debug\clientNetF4.pdb

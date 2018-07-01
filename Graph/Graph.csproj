@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Creator.cs" />
     <Compile Include="Dijkstra.cs" />
     <Compile Include="Edge.cs" />
     <Compile Include="Form1.cs">

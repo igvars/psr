@@ -11,6 +11,7 @@ namespace Client2
     {
         public Point Point { get; set; }
         public int ID { get; set; }
+        public int Branches { get; set; }
 
         public Node()
         {
