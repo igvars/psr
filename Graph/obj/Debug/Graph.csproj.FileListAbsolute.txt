@@ -88,3 +88,4 @@ C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\p
 C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\obj\Debug\Graph.csproj.CopyComplete
 C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\obj\Debug\Graph.exe
 C:\M\zgrywane\studia\PS\1_semestr\programowanie_systemow_rozproszonych\PROJEKT\psr\Graph\obj\Debug\Graph.pdb
+E:\Graph-2\Graph\obj\Debug\Graph.csproj.CopyComplete

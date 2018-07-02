@@ -56,6 +56,7 @@ namespace clientNetF4
             var ile = bin.Deserialize(stream);
             int znacznik = (int)ile;
             string result;
+            double resultNodeIndex = -1;
             Dijkstra dijkstra = new Dijkstra();
             try
             {
@@ -71,7 +72,7 @@ namespace clientNetF4
                         Console.WriteLine(e);
                     }
 
-                    result = dijkstra.shortestPath(nodeList, edgeList);
+                    result = dijkstra.shortestPath(nodeList, edgeList, ref resultNodeIndex);
 
                     Console.WriteLine(result);
                     formatter.Serialize(stream, result);

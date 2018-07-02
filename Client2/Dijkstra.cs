@@ -10,7 +10,7 @@ namespace Client2
 {
     public class Dijkstra
     {
-        public string shortestPath(List<Graph.Node> Nodes, List<Graph.Edge> Edges)
+        public string shortestPath(List<Graph.Node> Nodes, List<Graph.Edge> Edges, ref double resultNodeIndex)
         {
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
@@ -99,15 +99,16 @@ namespace Client2
                 }
             }
             double result = sum[0];
-            double resultNodeIndex = 0;
+            double rawResultNodeIndex = 0;
             for (int i = 1; i < Nodes.Count; i++)
             {
                 if (sum[i] < result)
                 {
                     result = sum[i];
-                    resultNodeIndex = i;
+                    rawResultNodeIndex = i;
                 }
             }
+            resultNodeIndex = rawResultNodeIndex;
             stopWatch.Stop();
 
             // Get the elapsed time as a TimeSpan value.

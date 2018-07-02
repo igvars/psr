@@ -18,6 +18,7 @@ namespace Graph
         Form myForm = new Form();
         public List<Node> Nodelist1 = new List<Node>();
         public List<Edge> Edges = new List<Edge>();
+        public Edge dijkstraResultNode;
         Random Rand = new Random();
         int NodesCount;
         int branching;
@@ -83,7 +84,9 @@ namespace Graph
         private void button3_Click(object sender, EventArgs e)
         {
             Dijkstra dijkstra = new Dijkstra();
-            string result = dijkstra.shortestPath(Nodelist1, Edges);
+            double resultIndexNode = -1;
+            
+            string result = dijkstra.shortestPath(Nodelist1, Edges, ref resultIndexNode);
             MessageBox.Show("Time: " + result);
         }
 

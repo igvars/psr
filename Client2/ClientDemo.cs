@@ -55,6 +55,7 @@ namespace Client2
             int znacznik = (int)ile;
             string result;
             Dijkstra dijkstra = new Dijkstra();
+            double resultNodeIndex = -1;
             try
             {
                 do
@@ -69,7 +70,7 @@ namespace Client2
                         Console.WriteLine(e);
                     }
 
-                    result = dijkstra.shortestPath(nodeList, edgeList);
+                    result = dijkstra.shortestPath(nodeList, edgeList, ref resultNodeIndex);
 
                     Console.WriteLine(result);
                     formatter.Serialize(stream, result);
