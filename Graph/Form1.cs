@@ -15,8 +15,7 @@ namespace Graph
 {
     public partial class Form1 : Form
     {
-        Form myForm = new Form();
-        public List<Node> Nodelist1 = new List<Node>();
+        public List<Node> Nodes = new List<Node>();
         public List<Edge> Edges = new List<Edge>();
         public Edge dijkstraResultNode;
         Random Rand = new Random();
@@ -25,7 +24,7 @@ namespace Graph
 
         public List<Node> getNodeList()
         {
-            return Nodelist1;
+            return Nodes;
         }
         public List<Edge> getEdges()
         {
@@ -66,7 +65,7 @@ namespace Graph
             {
                 var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 
-                bformatter.Serialize(stream, Nodelist1);
+                bformatter.Serialize(stream, Nodes);
             }
 
             MessageBox.Show("Saved to " + dir);
@@ -77,7 +76,7 @@ namespace Graph
             TcpClient tcpServer = new TcpClient();
             tcpServer.StartServer(5000);
 
-            tcpServer.Ser(Nodelist1, Edges);
+            tcpServer.Ser(Nodes, Edges);
             tcpServer.LoopClients();
         }
 
@@ -86,7 +85,7 @@ namespace Graph
             Dijkstra dijkstra = new Dijkstra();
             double resultIndexNode = -1;
             
-            string result = dijkstra.shortestPath(Nodelist1, Edges, ref resultIndexNode);
+            string result = dijkstra.shortestPath(Nodes, Edges, ref resultIndexNode);
             MessageBox.Show("Time: " + result);
         }
 
@@ -98,11 +97,11 @@ namespace Graph
                 g.Clear(Color.White);
                 pictureBox1.Refresh();
             }
-            Nodelist1.Clear();
+            Nodes.Clear();
             Edges.Clear();
-            
 
-            if(textBox1.Text == "" || Convert.ToInt32(textBox1.Text) <= 3)
+
+            if (textBox1.Text == "" || Convert.ToInt32(textBox1.Text) <= 3)
             {
                 NodesCount = 3;
             }
@@ -132,54 +131,33 @@ namespace Graph
                 Node newNode = new Node();
                 newNode.Point = new Point(Rand.Next(12, 1800), Rand.Next(12, 720));
                 newNode.ID = i;
-                Nodelist1.Add(newNode);
+                Nodes.Add(newNode);
             }
 
-            ConnectedNodesID.Add(Rand.Next(0, Nodelist1.Count));
+            ConnectedNodesID.Add(0);
+            Nodes[0].Branches++;
             do
             {
                 do
                 {
-                    randID = Rand.Next(0, Nodelist1.Count); // random node having 0 branches
-                } while (Nodelist1[randID].Branches != 0);
-                
+                    randID = Rand.Next(0, Nodes.Count); // random node having 0 branches
+                } while (Nodes[randID].Branches != 0);
+
                 do
                 {
                     randConnectedIndex = Rand.Next(0, ConnectedNodesID.Count); // losowy indeks z wierzcholkow, ktore maja przyporzadkowana krawedz
                     randConnectedID = ConnectedNodesID[randConnectedIndex]; // numer konkretnego wierzcholka spod wylosowanego wyzej indeksu
-                                                                            // (bedzie to poczatek krawedzi)
-                } while (Nodelist1[randConnectedID].Branches >= branching);
+                } while (Nodes[randConnectedID].Branches >= branching);
 
-                if(Nodelist1[randID].ID == Nodelist1[randConnectedID].ID)
-                {
-                    continue;
-                }
-                
-                Edge newEdge = new Edge(Nodelist1[randID], Nodelist1[randConnectedID]); // krawedz utworzona z dwoch wylosowanych wierzcholkow
-                Nodelist1[randID].Branches++;
-                Nodelist1[randConnectedID].Branches++;
+                Nodes[randID].Branches++;
+                ConnectedNodesID.Add(randID);
+                if (randConnectedID != 0) Nodes[randConnectedID].Branches++; //Nodes[0].Branches++ occured before loop
 
-                // sprawdzenie, czy czasem nie mamy juz takiej krawedzi. Jesli nie, to ja dodajemy do listy i rysujemy
-                int foundIt = 0;
-                for (int i = 0; i < Edges.Count; i++)
-                {
-                    if (Edges[i].compareEdge(newEdge)) foundIt++;
-                }
-                if (foundIt <= 0)
-                {
-                    newEdge.ID = Edges.Count; // assign ID to new edge
-                    Edges.Add(newEdge);
-                }
-
-                // sprawdzamy, czy wylosowany koniec krawedzi jest juz dodany do connectedNodesID. Jesli nie, to go dodajemy
-                foundIt = 0;
-                for (int i = 0; i < ConnectedNodesID.Count; i++)
-                {
-                    if (ConnectedNodesID[i] == randID) foundIt++;
-                }
-                if (foundIt == 0) ConnectedNodesID.Add(randID);
-            } while (ConnectedNodesID.Count < Nodelist1.Count); // dopoki chociaz 1 wygenerowany wezel nie nalezy do grafu
-                                                                // (nie ma przyporzadkowanej krawedzi), losujemy kolejne
+                Edge newEdge = new Edge(Nodes[randID], Nodes[randConnectedID]); // krawedz utworzona z dwoch wylosowanych wierzcholkow
+                newEdge.ID = Edges.Count;
+                Edges.Add(newEdge);
+            } while (ConnectedNodesID.Count < Nodes.Count); // dopoki chociaz 1 wygenerowany wezel nie nalezy do grafu
+                                                            // (nie ma przyporzadkowanej krawedzi), losujemy kolejne
 
             using (var g = Graphics.FromImage(pictureBox1.Image))
             {
@@ -187,9 +165,9 @@ namespace Graph
                 Pen pen = new Pen(Color.Black, 1);
 
                 // rysowanie wezlow i krawedzi
-                for (int i = 0; i < Nodelist1.Count; i++)
+                for (int i = 0; i < Nodes.Count; i++)
                 {
-                    g.FillRectangle(aBrush, Nodelist1[i].Point.X, Nodelist1[i].Point.Y, 5, 5);
+                    g.FillRectangle(aBrush, Nodes[i].Point.X, Nodes[i].Point.Y, 5, 5);
                 }
 
                 for (int i = 0; i < Edges.Count; i++)
@@ -208,7 +186,7 @@ namespace Graph
                 g.Clear(Color.White);
                 pictureBox1.Refresh();
             }
-            Nodelist1.Clear();
+            Nodes.Clear();
             Edges.Clear();
 
             string dir = "C:\\Graph\\";
@@ -230,9 +208,9 @@ namespace Graph
             {
                 var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 
-                Nodelist1 = (List<Node>)bformatter.Deserialize(stream);
+                Nodes = (List<Node>)bformatter.Deserialize(stream);
 
-                foreach (Node n in Nodelist1)
+                foreach (Node n in Nodes)
                 {
                     Console.WriteLine(n);
                 }
@@ -244,9 +222,9 @@ namespace Graph
                 Pen pen = new Pen(Color.Black, 1);
 
                 // rysowanie wezlow i krawedzi
-                for (int i = 0; i < Nodelist1.Count; i++)
+                for (int i = 0; i < Nodes.Count; i++)
                 {
-                    g.FillRectangle(aBrush, Nodelist1[i].Point.X, Nodelist1[i].Point.Y, 5, 5);
+                    g.FillRectangle(aBrush, Nodes[i].Point.X, Nodes[i].Point.Y, 5, 5);
                 }
 
                 for (int i = 0; i < Edges.Count; i++)
